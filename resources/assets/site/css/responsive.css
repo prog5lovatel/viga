@@ -1,0 +1,273 @@
+/* Telas Maiores */
+@media screen and (min-width: 1920px){
+    #banner .swiper-slide video, #banner .swiper-slide img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+}
+
+/*Container*/
+
+@media screen and (max-width: 1200px){
+    .container{
+        padding: 30px 20px;
+    }
+}
+
+/* Banner */
+@media screen and (max-width: 900px){
+    .bannerDesk{
+        display: none;
+    }
+    .bannerMobile{
+        display: flex;
+    }
+    #banner .swiper-slide video, #banner .swiper-slide img{
+        object-position: center;
+        object-fit: cover;
+        aspect-ratio: 4 / 4;
+    }
+}
+@media screen and (max-width:530px){
+    #banner2::after{
+        height: 300px;
+    }
+
+    .bannerMobile img{
+        min-height: 440px;
+    }
+}
+
+@media screen and (max-width:470px){
+    #banner2:after {
+        height: 220px;
+        width: 100px;
+    }
+}
+
+/* Header */
+@media screen and (max-width:470px){
+    .logoH{
+        max-width: 170px;
+    }
+
+    .menuMobile {
+        top: 53px;
+    }
+    
+}
+/* Home */
+
+@media screen and (max-width:1380px){
+    .slidesServicos .swiper-button-prev,
+    .slidesServicos .swiper-container-rtl .swiper-button-next{
+        left: 0px;
+    }
+
+    .slidesServicos .swiper-button-next,
+    .slidesServicos .swiper-container-rtl .swiper-button-prev{
+        right: 0px;
+    }
+    .slidesObras .swiper-button-prev,
+    .slidesObras .swiper-container-rtl .swiper-button-next{
+        left: 0;
+    }
+
+    .slidesObras .swiper-button-next,
+    .slidesObras .swiper-container-rtl .swiper-button-prev {
+        right: 0;
+    }
+}
+
+@media screen and (max-width:1020px){
+    .sectionObrasDestaques .main{
+        padding: 70px 20px;
+    }
+}
+
+@media screen and (max-width:690px){
+    .sectionTrabalheHome .grid2{
+        grid-template-columns: repeat(1,1fr);
+        gap: 20px;
+    }
+
+    .trabalheHome:after {
+        height: 420px;
+        bottom: 0;
+    }
+}
+
+/* Footer */
+@media screen and (max-width:860px){
+    .infoFooter .main{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .logoF {
+        order: -1;
+    }
+}
+
+@media screen and (max-width:460px){
+    .itemUnidades {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logoF {
+        max-width: 220px;
+    }
+}
+
+/* Sobre */
+
+@media screen and (max-width: 1635px){
+    .sectionTopoInternas:after{
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width:1380px){
+    .slidesGaleriaSobre .swiper-button-prev,
+    .slidesGaleriaSobre .swiper-container-rtl .swiper-button-next{
+        left: 0px;
+    }
+
+    .slidesGaleriaSobre .swiper-button-next,
+    .slidesGaleriaSobre .swiper-container-rtl .swiper-button-prev{
+        right: 0px;
+    }
+}
+
+
+@media screen and (max-width: 960px){
+    .gridValores{
+        grid-template-columns: 1fr;
+    }
+
+    .gridValores .grid{
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1 / 3;
+    }
+
+    .missao, .visao {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .gridValores .grid{
+        grid-template-columns: 1fr;
+        grid-column: 1;
+    }
+
+    .valores p:last-child{
+        margin-bottom: 0;
+    }
+
+    .valores {
+        padding: 60px 20px;
+    }
+}
+
+/* Servicos */
+@media screen and (max-width: 1000px){
+    .gridServicos{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width: 700px){
+    .gridServicos{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+/* Serviço Detalhes */
+
+@media screen and (max-width:1380px){
+    .servicosSection .swiper-button-prev,
+    .servicosSection .swiper-container-rtl .swiper-button-next{
+        left: 0px;
+    }
+
+    .servicosSection .swiper-button-next,
+    .servicosSection .swiper-container-rtl .swiper-button-prev{
+        right: 0px;
+    }
+}
+
+
+@media screen and (max-width: 1020px){
+    .servicosSection .main{
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .servicosSection .e_input{
+        width: 100%;
+    }
+
+    .faleServicos {
+        padding: 120px 0 60px 20px;
+    }
+}
+
+/* Formulario */
+@media screen and (max-width: 1060px){
+    .formulario {
+        padding: 70px 60px;
+    }
+}
+
+@media screen and (max-width:720px){
+    .formulario #form_contact .e_input{
+        width: 100%;
+    }
+    .formulario #form_contact .e_input .labelAnexo{
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width:480px){
+    #form_contact .button{
+        right: 10px;
+    }
+    .formulario {
+        padding: 70px 25px;
+    }
+}
+
+/* Contato */
+@media screen and (max-width: 530px){
+    .btnsTrabalhe{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mapa */
+
+@media screen and (max-width: 1300px){
+    .blocoRep{
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .blocoRep{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        min-width: 200px;
+    }
+
+    .sectionMapa{
+        flex-direction: column;
+    }
+}
