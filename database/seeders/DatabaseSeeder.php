@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Popup;
 use App\Models\Site;
+use App\Models\Sobre;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,6 +52,16 @@ class DatabaseSeeder extends Seeder
                 'codigos_head' => "",
                 'codigos_body' => "",
                 'codigos_footer' => ""
+            ]);
+        }
+
+        if(Sobre::query()->count() === 0){
+
+            Sobre::query()->create([
+                'texto' => "",
+                'missao' => "",
+                'visao' => "",
+                'valores' => "",
             ]);
         }
     }

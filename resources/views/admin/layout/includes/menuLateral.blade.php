@@ -73,6 +73,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.sobre*') ? 'active' : null }}">
+                    <a href="{{ route('admin.sobre.edit',['sobre'=>1]) }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Sobre</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.servico*') ? 'active' : null }}">
                     <a href="{{ route('admin.servico') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

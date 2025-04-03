@@ -21,18 +21,15 @@
     <main class="mainSobre">
         <section class="sobreSection container">
             <div class="main flex_c">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto aliquid at molestias, accusamus quo eaque deserunt corporis! Asperiores dolorum non accusamus deserunt dolores beatae, consequuntur quam fuga ducimus voluptates veritatis ad, eligendi vel eaque excepturi nulla animi vitae molestias esse placeat reprehenderit perspiciatis provident, quos a? Neque ad nam dicta molestiae dolores reprehenderit, esse recusandae perspiciatis illo molestias minus unde aliquid impedit blanditiis voluptas cum nostrum corporis eligendi amet beatae tenetur dolorum? Ea assumenda nobis libero magnam voluptatum repudiandae. Dignissimos commodi impedit voluptate inventore in odio voluptas sed tenetur architecto neque quibusdam repellendus, quo asperiores, repellat quis eum fuga!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto aliquid at molestias, accusamus quo eaque deserunt corporis! Asperiores dolorum non accusamus deserunt dolores beatae, consequuntur quam fuga ducimus voluptates veritatis ad, eligendi vel eaque excepturi nulla animi vitae molestias esse placeat reprehenderit perspiciatis provident, quos a? Neque ad nam dicta molestiae dolores reprehenderit, esse recusandae perspiciatis illo molestias minus unde aliquid impedit blanditiis voluptas cum nostrum corporis eligendi amet beatae tenetur dolorum? Ea assumenda nobis libero magnam voluptatum repudiandae. Dignissimos commodi impedit voluptate inventore in odio voluptas sed tenetur architecto neque quibusdam repellendus, quo asperiores, repellat quis eum fuga!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis architecto aliquid at molestias, accusamus quo eaque deserunt corporis! Asperiores dolorum non accusamus deserunt dolores beatae, consequuntur quam fuga ducimus voluptates veritatis ad, eligendi vel eaque excepturi nulla animi vitae molestias esse placeat reprehenderit perspiciatis provident, quos a? Neque ad nam dicta molestiae dolores reprehenderit, esse recusandae perspiciatis illo molestias minus unde aliquid impedit blanditiis voluptas cum nostrum corporis eligendi amet beatae tenetur dolorum? Ea assumenda nobis libero magnam voluptatum repudiandae. Dignissimos commodi impedit voluptate inventore in odio voluptas sed tenetur architecto neque quibusdam repellendus, quo asperiores, repellat quis eum fuga!</p>
-
+                {!! $sobre->texto !!}
                 <section class="slidesGaleriaSobre fullW">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            @for ($s = 0; $s < 5; $s++)
-                                <a href="https://dummyimage.com/830x680/" class="swiper-slide" data-fancybox="foto">
-                                    <img src="https://dummyimage.com/830x680/">
+                            @foreach($sobre->fotos as $sobreFotos)
+                                <a href="{{ $sobreFotos->foto }}" class="swiper-slide" data-fancybox="foto">
+                                    <img src="{{ $sobreFotos->foto_thumb }}">
                                 </a>
-                            @endfor
+                            @endforeach
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -51,36 +48,19 @@
                         <div class="missao flex_c">
                             <h4 class="sub-t blackFont margin10 bold">Missão</h4>
                             <span class="flex lineYellow margin20"></span>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis animi eligendi sed exercitationem quibusdam delectus!
-                            </p>
+                            {!! $sobre->missao !!}
                         </div>
                         <div class="visao flex_c">
                             <h4 class="sub-t blackFont margin10 bold ">Visão</h4>
-                            <span class="flex lineYellow margin20   "></span>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis animi eligendi sed exercitationem quibusdam delectus!
-                            </p>
+                            <span class="flex lineYellow margin20"></span>
+                            {!! $sobre->visao !!}
                         </div>
                     </div>
 
                     <div class="valores flex_c">
                         <h4 class="sub-t blackFont bold margin10 index2">Valores</h4>
                         <span class="flex lineBlack margin20 index2"></span>
-                        <p>Ética e Integridade:<br>
-                            Conduzir todos os negócios com honestidade, transparência e respeito às leis, promovendo relações justas e de confiança com clientes, fornecedores e colaboradores.<br>
-
-                            Sustentabilidade:<br>
-                            Atuar de forma responsável com o meio ambiente, buscando sempre práticas que minimizem impactos e promovam o desenvolvimento sustentável.<br>
-
-                            Excelência Operacional:<br>
-                            Buscar constantemente a melhoria dos processos e a excelência na execução das obras, garantindo a satisfação dos clientes e a segurança de todos.<br>
-
-                            Respeito e Valorização das Pessoas:<br>
-                            Tratar todos com respeito e dignidade, criando um ambiente de trabalho seguro, inclusivo e acolhedor.<br>
-
-                            Compromisso Social:<br>
-                            Contribuir ativamente para o bem-estar das comunidades onde atuamos, apoiando iniciativas que promovam desenvolvimento social.</p>
+                        {!! $sobre->valores !!}
                     </div>
 
                 </div>
@@ -105,28 +85,22 @@
                 delay: 3000,
                 disableOnInteraction: true,
             },
-            loop: true,
             navigation: {
                 nextEl: '.slidesGaleriaSobre .swiper-button-next',
                 prevEl: '.slidesGaleriaSobre .swiper-button-prev',
             },
             breakpoints: {
                 1150: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    slidesPerGroup: 1,
-                },
-                780: {
                     slidesPerView: 2,
                     spaceBetween: 20,
                     slidesPerGroup: 1,
                 },
-                420: {
+                780: {
                     slidesPerView: 1,
                     spaceBetween: 20,
                     slidesPerGroup: 1,
-                },
-            },
+                }
+            }
         });
     </script>
 @endsection
