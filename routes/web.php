@@ -31,7 +31,7 @@ Route::get('/servicos/{slugServico}', [ServicosController::class, 'detalhes'])->
 
 /* Obras */
 Route::get('/obras', [ObrasController::class, 'index'])->name('obras');
-Route::get('/obras-detalhes', [ObrasController::class, 'detalhes'])->name('obras.detalhes');
+Route::get('/obra/{slugObra}', [ObrasController::class, 'detalhes'])->name('obras.detalhes');
 
 /* Ouvidoria */
 Route::get('/ouvidoria', [OuvidoriaController::class, 'index'])->name('ouvidoria');

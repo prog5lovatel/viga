@@ -17,16 +17,16 @@
                 <p>Em nosso portfólio, destacamos algumas das principais obras realizadas ao longo dos anos, com projetos de grande impacto em diversas cidades e rodovias. Cada obra é executada com o compromisso de atender aos mais altos padrões de qualidade e segurança.</p>
 
                 <div class="grid3 gridServicos margin50">
-                    @for ($s = 0; $s < 5; $s++)
-                    <a href="{{ route('obras.detalhes') }}" class="flex_c itemServicos">
-                        <img src="https://dummyimage.com/830x680/" alt="nome serviço">
+                    @foreach ($obras as $obra)
+                    <a href="{{ route('obras.detalhes',['slugObra' => $obra->slug]) }}" class="flex_c itemServicos">
+                        <img src="{{ $obra->foto }}" alt="{{ $obra->nome }}">
                         <div class="flex_c middle sobreServicos">
                             <h2 class="med-t whiteFont t-center center bold">
-                               Nome OBRAS
+                                {{ $obra->nome }}
                             </h2>
                         </div>
                     </a>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </section>

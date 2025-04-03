@@ -53,7 +53,7 @@
                         @foreach ($servicos as $servico)
                         <a href="{{ route('servicos.detalhes',['slugServico' => $servico->slug]) }}" class="swiper-slide">
                             <div class="itemServicos flex">
-                                <img src="{{ $servico->foto}}" alt="nome serviço">
+                                <img src="{{ $servico->foto }}" alt="nome serviço">
                                 <div class="flex_c middle sobreServicos">
                                     <h2 class="med-t whiteFont t-center center bold">
                                         {{ $servico->nome }}
@@ -80,18 +80,18 @@
             <section class="slidesObras fullW">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        @for ($s = 0; $s < 5; $s++)
-                            <a href="javascript:;" class="swiper-slide">
+                        @foreach ($obras as $obra)
+                            <a href="{{ route('obras.detalhes',['slugObra' => $obra->slug]) }}" class="swiper-slide">
                                 <div class="itemServicos flex">
-                                    <img src="https://dummyimage.com/1260x1020/" alt="nome obra">
+                                    <img src="{{ $obra->foto }}" alt="nome obra">
                                     <div class="flex_c middle sobreServicos">
                                         <h2 class="med-t whiteFont t-center center bold">
-                                            Pavimentação Asfáltica
+                                            {{ $servico->nome }}
                                         </h2>
                                     </div>
                                 </div>
                             </a>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -248,7 +248,6 @@
                 delay: 3000,
                 disableOnInteraction: true,
             },
-            loop: true,
             navigation: {
                 nextEl: '.slidesObras .swiper-button-next',
                 prevEl: '.slidesObras .swiper-button-prev',

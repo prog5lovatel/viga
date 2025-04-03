@@ -30,9 +30,9 @@
                                 </a>
 
                                 @foreach ($servico->fotos as $servicoFoto)
-                                    <a href="{{ $servico->foto }}" class="swiper-slide" data-fancybox="{{ $servico->nome }}">
+                                    <a href="{{ $servicoFoto->foto }}" class="swiper-slide" data-fancybox="{{ $servico->nome }}">
                                         <figure>
-                                            <img src="{{ $servicoFoto->foto_thumb }}" alt="{{ $servico->nome }}">
+                                            <img src="{{ $servicoFoto->foto }}" alt="{{ $servico->nome }}">
                                         </figure>
                                     </a>
                                 @endforeach

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CkEditor;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\ObraController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\ServicoController;
@@ -96,3 +97,17 @@ Route::post('/banner/alterar/{banner}', [BannerController::class, 'update'])->na
 Route::post('/banner/alterar-fotos/{banner}', [BannerController::class, 'updateFotos'])->name('banner.updateFotos')->middleware('auth');
 Route::post('/banner/ordenar', [BannerController::class, 'order'])->name('banner.order')->middleware('auth');
 Route::post('/banner/destruir/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy')->middleware('auth');
+/* Obra */
+Route::get('/obra', [ObraController::class, 'index'])->name('obra')->middleware('auth');
+Route::get('/obra/criar', [ObraController::class, 'create'])->name('obra.create')->middleware('auth');
+Route::get('/obra/{obra}', [ObraController::class, 'edit'])->name('obra.edit')->middleware('auth');
+Route::get('/obra/fotos/{obra}', [ObraController::class, 'fotos'])->name('obra.fotos')->middleware('auth');
+
+Route::post('/obra', [ObraController::class, 'store'])->name('obra.store')->middleware('auth');
+Route::post('/obra/alterar/{obra}', [ObraController::class, 'update'])->name('obra.update')->middleware('auth');
+Route::post('/obra/alterar-fotos/{obra}', [ObraController::class, 'updateFotos'])->name('obra.updateFotos')->middleware('auth');
+Route::post('/obra/ordenar', [ObraController::class, 'order'])->name('obra.order')->middleware('auth');
+Route::post('/obra/ordenar-fotos', [ObraController::class, 'orderObraFoto'])->name('obra.orderObraFoto')->middleware('auth');
+Route::post('/obra/destruir-fotos/{obra}', [ObraController::class, 'destroyAllObraFoto'])->name('obra.destroyAllObraFoto')->middleware('auth');
+Route::post('/obra/destruir-foto/{obraFoto}', [ObraController::class, 'destroyObraFoto'])->name('obra.destroyObraFoto')->middleware('auth');
+Route::post('/obra/destruir/{obra}', [ObraController::class, 'destroy'])->name('obra.destroy')->middleware('auth');

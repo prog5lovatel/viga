@@ -1,6 +1,6 @@
 @extends('site.layouts.base')
 
-@section('title', 'Obras Detalhes - ' . config('app.name'))
+@section('title', $obra->nome . ' - ' . config('app.name'))
 
 @section('pageLinks')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
@@ -12,7 +12,7 @@
     <section class="sectionTopoInternas">
         <img src="{{ @Vite::asset('resources/assets/site/img/topoObras.png') }}" alt="Obras">
         <div class="sobreInternas main flex_c">
-            <h1 class="main-t whiteFont bold margin10">Nome da Obra</h1>
+            <h1 class="main-t whiteFont bold margin10">{{ $obra->nome }}</h1>
             <span class="flex lineYellow"></span>
         </div>
     </section>
@@ -23,19 +23,19 @@
                     <div class="sliderProdutos fullW" id="detail">
                         <div class="swiper-container gallery-slider">
                             <div class="swiper-wrapper">
-                                <a href="https://dummyimage.com/830x680/" class="swiper-slide" data-fancybox="id">
+                                <a href="{{ $obra->foto }}" class="swiper-slide" data-fancybox="{{ $obra->nome }}">
                                     <figure>
-                                        <img src="https://dummyimage.com/830x680/" alt="nome servico">
+                                        <img src="{{ $obra->foto }}" alt="{{ $obra->nome }}">
                                     </figure>
                                 </a>
 
-                                @for ($i = 0; $i < 5 ; $i++)
-                                    <a href="https://dummyimage.com/830x680/" class="swiper-slide" data-fancybox="id">
+                                @foreach ($obra->fotos as $obrasFotos)
+                                    <a href="{{ $obrasFotos->foto}}" class="swiper-slide" data-fancybox="{{ $obra->nome }}">
                                         <figure>
-                                            <img src="https://dummyimage.com/830x680/" alt="nome servico">
+                                            <img src="{{ $obrasFotos->foto }}" alt="{{ $obra->nome }}">
                                         </figure>
                                     </a>
-                                @endfor
+                                @endforeach
 
                             </div>
                         </div>
@@ -46,26 +46,24 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <figure class="flex">
-                                        <img src="https://dummyimage.com/830x680/" alt="nome servico">
+                                        <img src="{{ $obra->foto_thumb }}" alt="{{ $obra->nome }}">
                                     </figure>
                                 </div>
 
-                                @for ($i = 0; $i < 5 ; $i++)
+                                @foreach ($obra->fotos as $obrasFotos)
                                     <div class="swiper-slide">
                                         <figure class="flex">
-                                            <img src="https://dummyimage.com/830x680/" alt="nome servico">
+                                            <img src="{{ $obrasFotos->foto_thumb }}" alt="{{ $obra->nome }}">
                                         </figure>
                                     </div>
-                                @endfor
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex_c e_input servicosTexto">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, fugiat praesentium enim totam at voluptate voluptatum officiis magni numquam omnis.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, fugiat praesentium enim totam at voluptate voluptatum officiis magni numquam omnis.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, fugiat praesentium enim totam at voluptate voluptatum officiis magni numquam omnis.</p>
+                    {!! $obra->texto !!}
 
                     <div class="flex_c faleServicos">
                         <h2 class="blackFont bold main-t margin30 index2">
