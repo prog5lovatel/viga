@@ -17,16 +17,16 @@
                 <p>A Viga Pavimentação Asfáltica oferece uma gama de serviços completos para atender diferentes necessidades de infraestrutura. Confira abaixo os principais serviços que disponibilizamos:<p>
 
                 <div class="grid3 gridServicos">
-                    @for ($s = 0; $s < 5; $s++)
-                    <a href="{{ route('servicos.detalhes') }}" class="flex_c itemServicos">
-                        <img src="https://dummyimage.com/830x680/" alt="nome serviço">
+                    @foreach ($servicos as $servico)
+                    <a href="{{ route('servicos.detalhes',['slugServico' => $servico->slug]) }}" class="flex_c itemServicos">
+                        <img src="{{ $servico->foto }}" alt="nome serviço">
                         <div class="flex_c middle sobreServicos">
                             <h2 class="med-t whiteFont t-center center bold">
-                                Pavimentação Asfáltica
+                                {{ $servico->nome }}
                             </h2>
                         </div>
                     </a>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </section>

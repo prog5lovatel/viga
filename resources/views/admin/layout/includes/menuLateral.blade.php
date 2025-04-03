@@ -66,6 +66,20 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.banner*') ? 'active' : null }}">
+                    <a href="{{ route('admin.banner') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Banner</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  {{ Request::routeIs('admin.servico*') ? 'active' : null }}">
+                    <a href="{{ route('admin.servico') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Servicos</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.users*') ? 'active' : null }}">
                     <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

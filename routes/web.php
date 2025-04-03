@@ -27,7 +27,7 @@ Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes');
 
 /* Servicos */
 Route::get('/servicos', [ServicosController::class, 'index'])->name('servicos');
-Route::get('/servicos-detalhes', [ServicosController::class, 'detalhes'])->name('servicos.detalhes');
+Route::get('/servicos/{slugServico}', [ServicosController::class, 'detalhes'])->name('servicos.detalhes');
 
 /* Obras */
 Route::get('/obras', [ObrasController::class, 'index'])->name('obras');

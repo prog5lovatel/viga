@@ -12,27 +12,27 @@
     <div id="banner2">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                @for ($b = 0; $b < 3; $b++)
-                    <a href="javascript:;" class="swiper-slide flex_c">
+                @foreach ($banners as $banner)
+                    <a href="{{ $banner->url }}" class="swiper-slide flex_c">
                         <figure class="bannerDesk flex">
-                            <img src="https://dummyimage.com/1920x740/" alt="Banner">
+                            <img src="{{ $banner->foto_computador }}" alt="Banner Computador">
                         </figure>
 
                         <figure class="bannerMobile flex">
-                            <img src="https://dummyimage.com/900x900/" alt="Banner">
+                            <img src="{{ $banner->foto_celular }}" alt="Banner Celular">
                         </figure>
 
                         <div class="sobreBanner flex middle">
                             <div class="main flex_c">
-                                {{-- ADICIONAR SÓ O TEXTO DENTRO DO H2 E DO H3 --}}
-                                <h2 class="main-t extrabold blackFont margin40">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem, quis.</h2>
 
-                                <h3 class="small-t blackFont">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, eum.</h3>
+                                <h2 class="main-t extrabold whiteFont margin40">{{ $banner->titulo }}</h2>
+
+                                <h3 class="small-t whiteFont">{{ $banner->subtitulo }}</h3>
 
                             </div>
                         </div>
                     </a>
-                @endfor
+                @endforeach
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -50,18 +50,18 @@
             <section class="slidesServicos fullW">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        @for ($s = 0; $s < 5; $s++)
-                            <a href="javascript:;" class="swiper-slide">
-                                <div class="itemServicos flex">
-                                    <img src="https://dummyimage.com/830x680/" alt="nome serviço">
-                                    <div class="flex_c middle sobreServicos">
-                                        <h2 class="med-t whiteFont t-center center bold">
-                                            Pavimentação Asfáltica
-                                        </h2>
-                                    </div>
+                        @foreach ($servicos as $servico)
+                        <a href="{{ route('servicos.detalhes',['slugServico' => $servico->slug]) }}" class="swiper-slide">
+                            <div class="itemServicos flex">
+                                <img src="{{ $servico->foto}}" alt="nome serviço">
+                                <div class="flex_c middle sobreServicos">
+                                    <h2 class="med-t whiteFont t-center center bold">
+                                        {{ $servico->nome }}
+                                    </h2>
                                 </div>
-                            </a>
-                        @endfor
+                            </div>
+                        </a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -217,7 +217,6 @@
                 delay: 3000,
                 disableOnInteraction: true,
             },
-            loop: true,
             navigation: {
                 nextEl: '.slidesServicos .swiper-button-next',
                 prevEl: '.slidesServicos .swiper-button-prev',
