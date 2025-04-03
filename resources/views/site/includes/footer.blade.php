@@ -2,28 +2,19 @@
     <div class="infoFooter container">
         <div class="main flex_w flex_r middle">
             <div class="unidadesFooter flex_c gap40">
+                @foreach ($unidades as $unidade)
                 <div class="itemUnidades flex gap20">
                     <figure class="whFitImg">
                         <img src="{{ @Vite::asset('resources/assets/site/img/pinIcon.png') }}" alt="Pin Icone">
                     </figure>
                     <div class="flex_c">
-                        <h2 class="yellowFont bold med-t margin10">Comercial</h2>
-                        <p>Rua Santos Dumont - 1090, Herval D'Oeste - SC, 89610-000</p>
-                        <a href="mailto:recepcao@vigapavimentacoes.com.br" class="whiteFont margin10">recepcao@vigapavimentacoes.com.br</a>
-                        <p>(49) 3522-6507</p>
+                        <h2 class="yellowFont bold med-t margin10">{{ $unidade->nome }}</h2>
+                        {!! $unidade->texto !!}
+                        <a href="mailto:{{ $unidade->email }}" class="whiteFont margin10">{{ $unidade->email }}</a>
+                        <p>{{ $unidade->telefone }}</p>
                     </div>
                 </div>
-                <div class="itemUnidades flex gap20">
-                    <figure class="whFitImg">
-                        <img src="{{ @Vite::asset('resources/assets/site/img/pinIcon.png') }}" alt="Pin Icone">
-                    </figure>
-                    <div class="flex_c">
-                        <h2 class="yellowFont bold med-t margin10">Comercial</h2>
-                        <p>Rua Santos Dumont - 1090, Herval D'Oeste - SC, 89610-000</p>
-                        <a href="mailto:recepcao@vigapavimentacoes.com.br" class="whiteFont margin10">recepcao@vigapavimentacoes.com.br</a>
-                        <p>(49) 3522-6507</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <a href="{{ route('home') }}" class="logoF whFitImg flex">
                 <img src="{{ @Vite::asset('resources/assets/site/img/logoF.png') }}" alt="{{ config('app.name') }}" title="{{ config('app.name') }}">

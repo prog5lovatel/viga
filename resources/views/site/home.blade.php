@@ -130,18 +130,18 @@
             </h2>
             <div class="carousel animated">
                 <div class="group animated">
-                    @for ($s = 0; $s < 5; $s++)
-                    <div class="card">
-                        <img src="https://dummyimage.com/310x170/">
-                    </div>
-                    @endfor
+                    @foreach ($clientes as $cliente)
+                    <a href="{{ $cliente->url }}" target="_blank" class="card">
+                        <img src="{{ $cliente->foto }}">
+                    </a>
+                    @endforeach
                 </div>
                 <div aria-hidden class="group animated">
-                    @for ($s = 0; $s < 5; $s++)
-                    <div class="card">
-                        <img src="https://dummyimage.com/310x170/">
-                    </div>
-                    @endfor
+                    @foreach ($clientes as $cliente)
+                    <a href="{{ $cliente->url }}" target="_blank" class="card">
+                        <img src="{{ $cliente->foto }}">
+                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>

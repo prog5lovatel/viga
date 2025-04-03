@@ -87,6 +87,20 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.cliente*') ? 'active' : null }}">
+                    <a href="{{ route('admin.cliente') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  {{ Request::routeIs('admin.unidade*') ? 'active' : null }}">
+                    <a href="{{ route('admin.unidade') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Unidades</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.users*') ? 'active' : null }}">
                     <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CkEditor;
+use App\Http\Controllers\Admin\ClienteController;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ObraController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\ServicoController;
 use App\Http\Controllers\Admin\SiteController;
+use App\Http\Controllers\Admin\UnidadeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -111,3 +113,24 @@ Route::post('/obra/ordenar-fotos', [ObraController::class, 'orderObraFoto'])->na
 Route::post('/obra/destruir-fotos/{obra}', [ObraController::class, 'destroyAllObraFoto'])->name('obra.destroyAllObraFoto')->middleware('auth');
 Route::post('/obra/destruir-foto/{obraFoto}', [ObraController::class, 'destroyObraFoto'])->name('obra.destroyObraFoto')->middleware('auth');
 Route::post('/obra/destruir/{obra}', [ObraController::class, 'destroy'])->name('obra.destroy')->middleware('auth');
+
+/* Cliente */
+Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente')->middleware('auth');
+Route::get('/cliente/criar', [ClienteController::class, 'create'])->name('cliente.create')->middleware('auth');
+Route::get('/cliente/{cliente}', [ClienteController::class, 'edit'])->name('cliente.edit')->middleware('auth');
+Route::get('/cliente/fotos/{cliente}', [ClienteController::class, 'fotos'])->name('cliente.fotos')->middleware('auth');
+
+Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store')->middleware('auth');
+Route::post('/cliente/alterar/{cliente}', [ClienteController::class, 'update'])->name('cliente.update')->middleware('auth');
+Route::post('/cliente/alterar-fotos/{cliente}', [ClienteController::class, 'updateFotos'])->name('cliente.updateFotos')->middleware('auth');
+Route::post('/cliente/ordenar', [ClienteController::class, 'order'])->name('cliente.order')->middleware('auth');
+Route::post('/cliente/destruir/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy')->middleware('auth');
+/* Unidade */
+Route::get('/unidade', [UnidadeController::class, 'index'])->name('unidade')->middleware('auth');
+Route::get('/unidade/criar', [UnidadeController::class, 'create'])->name('unidade.create')->middleware('auth');
+Route::get('/unidade/{unidade}', [UnidadeController::class, 'edit'])->name('unidade.edit')->middleware('auth');
+
+Route::post('/unidade', [UnidadeController::class, 'store'])->name('unidade.store')->middleware('auth');
+Route::post('/unidade/alterar/{unidade}', [UnidadeController::class, 'update'])->name('unidade.update')->middleware('auth');
+Route::post('/unidade/ordenar', [UnidadeController::class, 'order'])->name('unidade.order')->middleware('auth');
+Route::post('/unidade/destruir/{unidade}', [UnidadeController::class, 'destroy'])->name('unidade.destroy')->middleware('auth');
