@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\SendMailContato;
+use App\Mail\SendMailOuvidoria;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -18,9 +18,11 @@ class OuvidoriaController extends SiteBaseController
     public function enviar(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nome' => ['required'],
-            'email' => ['required', 'email'],
-            'telefone' => ['required']
+            'nome' => ['nullable'],
+            'email' => ['nullable', 'email'],
+            'telefone' => ['nullable'],
+            'arquivo' => ['nullable', 'mimes:pdf,doc,docx,jpg,jpeg'],
+            'mensagem' => ['required']
         ]);
 
         if ($validator->fails()) {
@@ -30,9 +32,9 @@ class OuvidoriaController extends SiteBaseController
         }
 
         $formulario = [
-            'nome' => $request->nome,
-            'email' => $request->email,
-            'telefone' => $request->telefone,
+            'nome' => $request->nome ?? null,
+            'telefone' => $request->telefone ?? null,
+            'relacao' => $request->relacao,
             'mensagem' => $request->mensagem
         ];
 
@@ -40,7 +42,7 @@ class OuvidoriaController extends SiteBaseController
 
             $site = Site::find(1);
 
-            Mail::to($site->email)->send(new SendMailContato($formulario['nome'] . " entrou em contato pelo site " . config('app.name'), $formulario));
+            Mail::to($site->email)->send(new SendMailOuvidoria("Nova solicitação de ouvidoria pelo site " . config('app.name'), $formulario, $request->file('arquivo')));
         }
 
         return response()->json([

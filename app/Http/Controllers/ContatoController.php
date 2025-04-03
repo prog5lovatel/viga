@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMailContato;
-use App\Models\Site;
+use App\Models\Setor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -12,6 +12,7 @@ class ContatoController extends SiteBaseController
 {
     public function index()
     {
+        $this->viewData['setores'] = Setor::all();
         return view('site.contato', $this->viewData);
     }
 
@@ -25,7 +26,8 @@ class ContatoController extends SiteBaseController
         $validator = Validator::make($request->all(), [
             'nome' => ['required'],
             'email' => ['required', 'email'],
-            'telefone' => ['required']
+            'telefone' => ['required'],
+            'setor' => ['required', 'integer', 'exists:setores,id']
         ]);
 
         if ($validator->fails()) {
@@ -34,18 +36,19 @@ class ContatoController extends SiteBaseController
             ], 422);
         }
 
+        $setor = Setor::find($request->setor);
+
         $formulario = [
             'nome' => $request->nome,
             'email' => $request->email,
             'telefone' => $request->telefone,
+            'assunto' => $setor->nome,
             'mensagem' => $request->mensagem
         ];
 
         if (config('app.env') == "production") {
 
-            $site = Site::find(1);
-
-            Mail::to($site->email)->send(new SendMailContato($formulario['nome'] . " entrou em contato pelo site " . config('app.name'), $formulario));
+            Mail::to($setor->email)->send(new SendMailContato($formulario['nome'] . " entrou em contato pelo site " . config('app.name'), $formulario));
         }
 
         return response()->json([

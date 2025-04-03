@@ -108,6 +108,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.setor*') ? 'active' : null }}">
+                    <a href="{{ route('admin.setor') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Setores</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.users*') ? 'active' : null }}">
                     <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ObraController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\ServicoController;
+use App\Http\Controllers\Admin\SetorController;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\SobreController;
 use App\Http\Controllers\Admin\UnidadeController;
@@ -145,3 +146,13 @@ Route::post('/sobre/alterar-fotos/{sobre}', [SobreController::class, 'updateFoto
 Route::post('/sobre/ordenar-fotos', [SobreController::class, 'orderSobreFoto'])->name('sobre.orderSobreFoto')->middleware('auth');
 Route::post('/sobre/destruir-fotos/{sobre}', [SobreController::class, 'destroyAllSobreFoto'])->name('sobre.destroyAllSobreFoto')->middleware('auth');
 Route::post('/sobre/destruir-foto/{sobreFoto}', [SobreController::class, 'destroySobreFoto'])->name('sobre.destroySobreFoto')->middleware('auth');
+
+/* Setor */
+Route::get('/setor', [SetorController::class, 'index'])->name('setor')->middleware('auth');
+Route::get('/setor/criar', [SetorController::class, 'create'])->name('setor.create')->middleware('auth');
+Route::get('/setor/{setor}', [SetorController::class, 'edit'])->name('setor.edit')->middleware('auth');
+
+Route::post('/setor', [SetorController::class, 'store'])->name('setor.store')->middleware('auth');
+Route::post('/setor/alterar/{setor}', [SetorController::class, 'update'])->name('setor.update')->middleware('auth');
+Route::post('/setor/ordenar', [SetorController::class, 'order'])->name('setor.order')->middleware('auth');
+Route::post('/setor/destruir/{setor}', [SetorController::class, 'destroy'])->name('setor.destroy')->middleware('auth');

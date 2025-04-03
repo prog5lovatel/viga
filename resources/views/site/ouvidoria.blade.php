@@ -17,7 +17,7 @@
                 <p>Estamos sempre à disposição para ouvir sugestões, críticas e denúncias, visando melhorar nossos processos e serviços. A Viga Pavimentação Asfáltica preza pela transparência e pelo respeito em todas as suas ações.</p>
 
                 <div class="formulario flex">
-                    <form id="form_contact" class="flex_r flex_w" action="{{ route('contato.enviar') }}" ajax-form>
+                    <form id="form_contact" class="flex_r flex_w" action="{{ route('ouvidoria.enviar') }}" ajax-form>
 
                         <div class="flex_c e_input">
                             <label for="nome">Nome: (opcional)</label>
@@ -46,7 +46,7 @@
                         </div>
 
                         <label for="denucia">Descrição da denúncia:</label>
-                        <textarea name="denucia" class="input msg" required></textarea>
+                        <textarea name="mensagem" class="input msg" required></textarea>
                         <span class="small-t">Estou de acordo com as <a href="javascript:;" class="blackFont bold underline"> políticas de denúncias</a></span>
                         <button type="submit" class="button flex middle gap20 whiteFont semibold">
                             <figure class="whFitImg">

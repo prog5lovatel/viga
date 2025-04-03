@@ -48,9 +48,11 @@
                             <input type="email" name="email" class="input" required>
 
                             <label for="assunto">Assunto:</label>
-                            <select id="assunto" name="assunto" class="input" required>
-                                <option value=""></option>
-                                <option value="assunto">Listar as Assunto</option>
+                            <select id="setor" name="setor" class="input" required>
+                                <option value="">Selecione:</option>
+                                @foreach ($setores as $setor)
+                                <option value="{{ $setor->id }}">{{ $setor->nome }}</option>
+                                @endforeach
                             </select>
                         </div>
 
