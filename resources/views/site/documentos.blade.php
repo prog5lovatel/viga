@@ -14,12 +14,14 @@
     <main class="mainDocumentos">
         <section class="sectionDocumentos container">
             <div class="main flex_c margin50">
-                <a href="javascript:;" target="_blank" class="itemDocumentos flex middle gap20 blackFont">
-                    <figure class="whFitImg">
-                        <img src="{{ @Vite::asset('resources/assets/site/img/pdfIcon.png') }}" alt="Icone Pdf">
-                    </figure>
-                    Norma Identificação Tratamento Conflito Interesses
-                </a>
+                @foreach ($documentos as $documento)
+                    <a href="{{ route('documento', ['documento' => $documento->slug]) }}" target="_blank" class="itemDocumentos flex middle gap20 blackFont">
+                        <figure class="whFitImg">
+                            <img src="{{ @Vite::asset('resources/assets/site/img/pdfIcon.png') }}" alt="Icone Pdf">
+                        </figure>
+                        {{ $documento->nome }}
+                    </a>
+                @endforeach
             </div>
         </section>
 

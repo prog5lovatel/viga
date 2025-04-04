@@ -45,38 +45,8 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="facebook" class="form-label">Facebook</label>
-                    <input id="facebook" class="form-control" type="url" name="facebook" value="{{ $site->facebook }}">
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="instagram" class="form-label">Instagram</label>
-                    <input id="instagram" class="form-control" type="url" name="instagram" value="{{ $site->instagram }}">
-                </div>
-
-                <div class="form-group col-md-6">
                     <label for="email" class="form-label">E-mail</label>
                     <input id="email" class="form-control" type="email" name="email" value="{{ $site->email }}">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input id="telefone" class="form-control" type="text" name="telefone" value="{{ $site->telefone }}">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="whatsapp" class="form-label">Whatsapp</label>
-                    <input id="whatsapp" class="form-control" type="text" name="whatsapp" value="{{ $site->whatsapp }}">
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="mapa" class="form-label">Mapa</label>
-                    <input id="mapa" class="form-control" type="text" name="mapa" value="{{ $site->mapa }}">
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="endereco" class="form-label">Endereço</label>
-                    <textarea id="endereco" class="form-control" name="endereco" rows="5">{{ $site->endereco }}</textarea>
                 </div>
 
                 <div class="col-12">

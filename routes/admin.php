@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\ObraController;
 use App\Http\Controllers\Admin\PopupController;
-use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\ServicoController;
 use App\Http\Controllers\Admin\SetorController;
 use App\Http\Controllers\Admin\SiteController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\Admin\SobreController;
 use App\Http\Controllers\Admin\UnidadeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VagaController;
+use App\Http\Controllers\Admin\DocumentoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', InicioController::class)->name('inicio')->middleware('auth');
@@ -167,3 +167,15 @@ Route::post('/vaga', [VagaController::class, 'store'])->name('vaga.store')->midd
 Route::post('/vaga/alterar/{vaga}', [VagaController::class, 'update'])->name('vaga.update')->middleware('auth');
 Route::post('/vaga/ordenar', [VagaController::class, 'order'])->name('vaga.order')->middleware('auth');
 Route::post('/vaga/destruir/{vaga}', [VagaController::class, 'destroy'])->name('vaga.destroy')->middleware('auth');
+
+/* Documento */
+Route::get('/documento', [DocumentoController::class, 'index'])->name('documento')->middleware('auth');
+Route::get('/documento/criar', [DocumentoController::class, 'create'])->name('documento.create')->middleware('auth');
+Route::get('/documento/{documento}', [DocumentoController::class, 'edit'])->name('documento.edit')->middleware('auth');
+Route::get('/documento/arquivos/{documento}', [DocumentoController::class, 'arquivos'])->name('documento.arquivos')->middleware('auth');
+
+Route::post('/documento', [DocumentoController::class, 'store'])->name('documento.store')->middleware('auth');
+Route::post('/documento/alterar/{documento}', [DocumentoController::class, 'update'])->name('documento.update')->middleware('auth');
+Route::post('/documento/alterar-arquivos/{documento}', [DocumentoController::class, 'updateArquivos'])->name('documento.updateArquivos')->middleware('auth');
+Route::post('/documento/ordenar', [DocumentoController::class, 'order'])->name('documento.order')->middleware('auth');
+Route::post('/documento/destruir/{documento}', [DocumentoController::class, 'destroy'])->name('documento.destroy')->middleware('auth');

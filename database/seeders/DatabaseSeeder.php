@@ -42,13 +42,7 @@ class DatabaseSeeder extends Seeder
             Site::query()->create([
                 'keywords' => "",
                 'description' => "",
-                'facebook' => "",
-                'instagram' => "",
                 'email' => "programacao2@lovatel.com.br",
-                'telefone' => "",
-                'whatsapp' => "(49) 99999-9999",
-                'endereco' => "",
-                'mapa' => "",
                 'codigos_head' => "",
                 'codigos_body' => "",
                 'codigos_footer' => ""

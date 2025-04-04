@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ClientesController;
@@ -40,3 +41,4 @@ Route::post('/ouvidoria', [OuvidoriaController::class, 'enviar'])->name('ouvidor
 
 /* Documentos */
 Route::get('/documentos', [DocumentosController::class, 'index'])->name('documentos');
+Route::get('/documento/{documento:slug}', DocumentoController::class)->name('documento');

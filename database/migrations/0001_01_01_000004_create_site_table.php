@@ -15,13 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('keywords');
             $table->text('description');
-            $table->string('facebook');
-            $table->string('instagram');
             $table->string('email');
-            $table->string('telefone', 50);
-            $table->string('whatsapp', 16);
-            $table->text('endereco');
-            $table->string('mapa', 500);
             $table->text('codigos_head')->nullable();
             $table->text('codigos_body')->nullable();
             $table->text('codigos_footer')->nullable();

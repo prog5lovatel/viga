@@ -122,6 +122,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.documento*') ? 'active' : null }}">
+                    <a href="{{ route('admin.documento') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Documentos</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.users*') ? 'active' : null }}">
                     <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

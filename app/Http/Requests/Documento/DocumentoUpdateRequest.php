@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Site;
+namespace App\Http\Requests\Documento;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SiteUpdateRequest extends FormRequest
+class DocumentoUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class SiteUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'keywords' =>       ['required'],
-            'description' =>    ['required'],
-            'email' =>          ['required', 'max:255', 'email']
+            'nome' => ['required', 'max:255']
         ];
     }
 
