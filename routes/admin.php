@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\SobreController;
 use App\Http\Controllers\Admin\UnidadeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VagaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', InicioController::class)->name('inicio')->middleware('auth');
@@ -156,3 +157,13 @@ Route::post('/setor', [SetorController::class, 'store'])->name('setor.store')->m
 Route::post('/setor/alterar/{setor}', [SetorController::class, 'update'])->name('setor.update')->middleware('auth');
 Route::post('/setor/ordenar', [SetorController::class, 'order'])->name('setor.order')->middleware('auth');
 Route::post('/setor/destruir/{setor}', [SetorController::class, 'destroy'])->name('setor.destroy')->middleware('auth');
+
+/* Vaga */
+Route::get('/vaga', [VagaController::class, 'index'])->name('vaga')->middleware('auth');
+Route::get('/vaga/criar', [VagaController::class, 'create'])->name('vaga.create')->middleware('auth');
+Route::get('/vaga/{vaga}', [VagaController::class, 'edit'])->name('vaga.edit')->middleware('auth');
+
+Route::post('/vaga', [VagaController::class, 'store'])->name('vaga.store')->middleware('auth');
+Route::post('/vaga/alterar/{vaga}', [VagaController::class, 'update'])->name('vaga.update')->middleware('auth');
+Route::post('/vaga/ordenar', [VagaController::class, 'order'])->name('vaga.order')->middleware('auth');
+Route::post('/vaga/destruir/{vaga}', [VagaController::class, 'destroy'])->name('vaga.destroy')->middleware('auth');

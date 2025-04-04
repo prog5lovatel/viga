@@ -115,6 +115,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.vaga*') ? 'active' : null }}">
+                    <a href="{{ route('admin.vaga') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Vagas</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.users*') ? 'active' : null }}">
                     <a href="{{ route('admin.users') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

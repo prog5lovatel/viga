@@ -39,13 +39,6 @@ class SetorController extends Controller
         return view('admin.setor.edit', $ViewData);
     }
 
-    public function fotos(Setor $setor)
-    {
-        $ViewData['setor'] = $setor;
-
-        return view('admin.setor.fotos', $ViewData);
-    }
-
     /* Data */
 
     public function store(SetorStoreRequest $request)
